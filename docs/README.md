@@ -9,6 +9,10 @@ This folder contains the complete documentation set for the project. Suggested r
 4. **tech-stack.md** — Chosen technologies and justification for each layer.
 5. **design-ui-ux.md** — Visual design system: colors, typography, layout, accessibility.
 6. **testing-plan.md** — How each module (including the AI components) will be tested and evaluated.
+7. **phases.md** — Week-by-week phase breakdown for the whole project timeline.
+8. **roadmap.md** — Milestone-level roadmap, current status, and future scope.
+9. **major-project-checklist.md** — Everything typically required for a final year major project (documentation, diagrams, viva prep, submission package) with a gap analysis against what's already done.
+10. **memory.md** — Full project context in one file, for quickly restoring context in a new session.
 
 ### Suggested repo structure
 ```
