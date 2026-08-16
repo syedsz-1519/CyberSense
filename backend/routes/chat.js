@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
     return res.status(400).json({ error: "message too long" });
   }
 
-  const contextChunks = retrieve(message, 3);
+  const contextChunks = await retrieve(message, 3);
   const contextText = contextChunks.map((c) => c.content).join("\n\n");
 
   const systemPrompt = `You are a friendly cybersecurity awareness assistant. Answer the user's question in plain, non-technical language using ONLY the context provided below when relevant. If the context doesn't cover the question, answer using general well-known cybersecurity best practices, and say so.

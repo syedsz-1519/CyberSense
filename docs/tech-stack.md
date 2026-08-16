@@ -25,9 +25,10 @@
 | Component | Choice | Notes |
 |---|---|---|
 | LLM Provider | Anthropic Claude API / OpenAI API (pick one) | Abstracted behind `llmService.js` |
-| Retrieval approach | Keyword search or lightweight embeddings | TF-IDF/cosine similarity sufficient for MVP scale |
-| Knowledge base format | Markdown/JSON chunks | Easy to curate and version-control |
-| Optional vector store (stretch goal) | Chroma / simple in-memory embedding index | Only if time permits |
+| Retrieval approach | Python microservice (scikit-learn TF-IDF + cosine similarity) | Real vectorized semantic retrieval, run as a separate Flask service (`/python`) |
+| Retrieval fallback | JS keyword-overlap search (Node) | Used automatically if the Python service is unreachable, so the app degrades gracefully |
+| Knowledge base format | Markdown chunks | Easy to curate and version-control; shared by both retrieval implementations |
+| Optional vector store (stretch goal) | Chroma / sentence-transformer embeddings | Drop-in upgrade to the Python service without changing its API or the Node integration |
 
 ### 4. Data / Storage
 | Need | Choice | Notes |

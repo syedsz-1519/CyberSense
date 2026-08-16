@@ -39,17 +39,43 @@ function score(text, query) {
   return matches;
 }
 
-/**
- * Retrieve the top-N most relevant knowledge-base chunks for a query.
- * @param {string} query
- * @param {number} topN
- * @returns {{source: string, content: string}[]}
- */
-export function retrieve(query, topN = 3) {
+function retrieveKeyword(query, topN = 3) {
   const all = loadChunks();
   return all
     .map((c) => ({ ...c, _score: score(c.content, query) }))
     .filter((c) => c._score > 0)
     .sort((a, b) => b._score - a._score)
     .slice(0, topN);
+}
+
+const PY_RAG_URL = process.env.PY_RAG_URL || "http://localhost:8001";
+
+/**
+ * Retrieve the top-N most relevant knowledge-base chunks for a query.
+ *
+ * Tries the Python TF-IDF semantic retrieval microservice first (see
+ * /python/rag_service.py) for better-than-keyword relevance. If that service
+ * isn't running (e.g. during quick local dev, or if it crashes), falls back
+ * automatically to the built-in JS keyword-overlap search below, so the app
+ * never breaks because of the optional Python component.
+ *
+ * @param {string} query
+ * @param {number} topN
+ * @returns {Promise<{source: string, content: string}[]>}
+ */
+export async function retrieve(query, topN = 3) {
+  try {
+    const res = await fetch(`${PY_RAG_URL}/retrieve`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query, top_n: topN }),
+      signal: AbortSignal.timeout(2000),
+    });
+    if (!res.ok) throw new Error(`Python RAG service returned ${res.status}`);
+    const data = await res.json();
+    return data.results.map((r) => ({ source: r.source, content: r.content }));
+  } catch (err) {
+    console.warn("Python RAG service unavailable, falling back to JS keyword search:", err.message);
+    return retrieveKeyword(query, topN);
+  }
 }
