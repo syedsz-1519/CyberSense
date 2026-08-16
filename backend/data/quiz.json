@@ -1,3 +1,100 @@
 {
-  "questions": []
+  "questions": [
+    {
+      "id": "q1",
+      "prompt": "You receive an email from 'support@paypa1-security.com' saying your account is suspended and you must log in immediately via a link. What should you do?",
+      "options": [
+        { "id": "a", "text": "Click the link and log in to fix the issue quickly" },
+        { "id": "b", "text": "Ignore the email and go directly to the official PayPal website by typing the URL yourself" },
+        { "id": "c", "text": "Reply to the email asking if it's real" },
+        { "id": "d", "text": "Forward it to friends to warn them" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The domain 'paypa1-security.com' is a typosquat (digit '1' instead of letter 'l') and not PayPal's real domain. Never click links in urgent unsolicited emails — go directly to the official site instead."
+    },
+    {
+      "id": "q2",
+      "prompt": "Which of these passwords is generally considered strongest?",
+      "options": [
+        { "id": "a", "text": "P@ssw0rd1" },
+        { "id": "b", "text": "MyDog2020!" },
+        { "id": "c", "text": "correct-horse-battery-staple-42" },
+        { "id": "d", "text": "123456789" }
+      ],
+      "correctOptionId": "c",
+      "explanation": "Length and unpredictability matter more than simple character substitution. A long random passphrase is harder to crack than short 'complex-looking' passwords that follow common patterns attackers already expect."
+    },
+    {
+      "id": "q3",
+      "prompt": "What is the safest way to use important accounts (banking, email) while connected to public Wi-Fi?",
+      "options": [
+        { "id": "a", "text": "Use them normally, public Wi-Fi is safe if the network has a password" },
+        { "id": "b", "text": "Avoid sensitive logins on public Wi-Fi, or use a trusted VPN" },
+        { "id": "c", "text": "Only use HTTP sites since HTTPS is slower" },
+        { "id": "d", "text": "Turn off your antivirus to speed up the connection" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Public Wi-Fi can be monitored by attackers on the same network. Avoid sensitive activity on public Wi-Fi, or use a reputable VPN to encrypt your traffic."
+    },
+    {
+      "id": "q4",
+      "prompt": "A colleague calls claiming to be from IT support and asks for your login password to 'fix an urgent issue.' What should you do?",
+      "options": [
+        { "id": "a", "text": "Give the password since they claim to be from IT" },
+        { "id": "b", "text": "Refuse, and verify the request through an official IT channel or in person" },
+        { "id": "c", "text": "Give a slightly different password to be safe" },
+        { "id": "d", "text": "Ask them to email you instead" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Legitimate IT support never needs your actual password. This is a classic pretexting/vishing attack — always verify identity through an independent, official channel before sharing any credentials."
+    },
+    {
+      "id": "q5",
+      "prompt": "Why is multi-factor authentication (MFA) recommended even if you already have a strong password?",
+      "options": [
+        { "id": "a", "text": "It's not necessary if the password is strong enough" },
+        { "id": "b", "text": "It protects your account even if the password is stolen through a breach or phishing" },
+        { "id": "c", "text": "It makes your password easier to remember" },
+        { "id": "d", "text": "It's only useful for banking apps" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Passwords can be stolen through data breaches or phishing regardless of strength. MFA adds a second layer, so a stolen password alone isn't enough for an attacker to get in."
+    },
+    {
+      "id": "q6",
+      "prompt": "You get a text message saying you have a package delivery fee to pay via a link. You weren't expecting a delivery. What is this most likely an example of?",
+      "options": [
+        { "id": "a", "text": "Vishing" },
+        { "id": "b", "text": "Smishing" },
+        { "id": "c", "text": "A legitimate courier notification" },
+        { "id": "d", "text": "Ransomware" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "This is smishing (SMS phishing) — a common scam using fake delivery notifications to trick users into clicking malicious links or entering payment details."
+    },
+    {
+      "id": "q7",
+      "prompt": "What's the best defense against ransomware locking your files?",
+      "options": [
+        { "id": "a", "text": "Paying the ransom immediately if it happens" },
+        { "id": "b", "text": "Keeping regular offline/offsite backups of important data" },
+        { "id": "c", "text": "Using a very long password on your computer" },
+        { "id": "d", "text": "Disabling your firewall" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "Regular offline backups (following the 3-2-1 rule) mean you can restore your files without paying attackers, since ransomware primarily threatens data availability."
+    },
+    {
+      "id": "q8",
+      "prompt": "Which URL is most likely to be a phishing attempt impersonating a bank called 'SecureBank'?",
+      "options": [
+        { "id": "a", "text": "https://www.securebank.com/login" },
+        { "id": "b", "text": "https://securebank.com.verify-account-now.net/login" },
+        { "id": "c", "text": "https://online.securebank.com/login" },
+        { "id": "d", "text": "https://www.securebank.com/help" }
+      ],
+      "correctOptionId": "b",
+      "explanation": "The real domain here is 'verify-account-now.net' — 'securebank.com' is just a misleading subdomain prefix designed to look legitimate at a glance."
+    }
+  ]
 }

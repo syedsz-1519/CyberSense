@@ -1,0 +1,96 @@
+:root {
+  --color-primary: #1E3A8A;
+  --color-secondary: #0F766E;
+  --color-bg: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-text: #0F172A;
+  --color-text-secondary: #64748B;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+  --color-border: #E2E8F0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.app-shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.nav button.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+textarea, input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+button.primary {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.result-card {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  border-left: 4px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.result-card.low, .result-card.strong { border-left-color: var(--color-success); }
+.result-card.medium, .result-card.moderate { border-left-color: var(--color-warning); }
+.result-card.high, .result-card.weak { border-left-color: var(--color-danger); }
+
+.chat-log { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+.bubble { padding: 10px 14px; border-radius: 12px; max-width: 75%; }
+.bubble.user { align-self: flex-end; background: var(--color-primary); color: white; }
+.bubble.bot { align-self: flex-start; background: var(--color-bg); border: 1px solid var(--color-border); }
