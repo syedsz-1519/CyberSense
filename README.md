@@ -1,6 +1,11 @@
 # CyberSense
 ### AI-Powered Cybersecurity Awareness Chatbot
 
+[![Backend CI](https://github.com/syedsz-1519/CyberSense/actions/workflows/backend-ci.yml/badge.svg)](https://github.com/syedsz-1519/CyberSense/actions/workflows/backend-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen)
+![Python](https://img.shields.io/badge/python-3.9%2B-blue)
+
 > A final year B.Tech (AI & ML) project that teaches everyday users how to protect themselves online — through a grounded AI chatbot, a phishing/URL checker, a password strength analyzer, and a scenario-based awareness quiz.
 
 ---
