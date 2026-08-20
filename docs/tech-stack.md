@@ -25,7 +25,7 @@
 ### 3. AI / LLM Integration
 | Component | Choice | Notes |
 |---|---|---|
-| LLM Provider | Anthropic Claude API / OpenAI API (pick one) | Abstracted behind `llmService.js` |
+| LLM Provider | Groq (free, no credit card) by default — Anthropic Claude also supported | Provider abstracted behind `llmService.js`; Groq's free tier (no billing setup) makes the project runnable at zero cost for demo/evaluation |
 | Retrieval approach | Python microservice (scikit-learn TF-IDF + cosine similarity) | Real vectorized semantic retrieval, run as a separate Flask service (`/python`) |
 | Retrieval fallback | JS keyword-overlap search (Node) | Used automatically if the Python service is unreachable, so the app degrades gracefully |
 | Knowledge base format | Markdown chunks | Easy to curate and version-control; shared by both retrieval implementations |

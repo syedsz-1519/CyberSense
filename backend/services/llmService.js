@@ -5,7 +5,7 @@
 import dotenv from "dotenv";
 dotenv.config();
 
-const PROVIDER = process.env.LLM_PROVIDER || "anthropic";
+const PROVIDER = process.env.LLM_PROVIDER || "groq";
 const API_KEY = process.env.LLM_API_KEY;
 
 /**
@@ -39,6 +39,29 @@ export async function generateResponse(systemPrompt, userMessage) {
     if (!res.ok) throw new Error(`LLM API error: ${res.status}`);
     const data = await res.json();
     return data.content?.[0]?.text ?? "";
+  }
+
+  if (PROVIDER === "groq") {
+    // Groq: free tier, no credit card required. OpenAI-compatible endpoint.
+    // Get a key at https://console.groq.com/keys
+    const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "llama-3.3-70b-versatile",
+        max_tokens: 500,
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: userMessage },
+        ],
+      }),
+    });
+    if (!res.ok) throw new Error(`LLM API error: ${res.status}`);
+    const data = await res.json();
+    return data.choices?.[0]?.message?.content ?? "";
   }
 
   // Add other providers (openai, etc.) here as needed.
