@@ -45,6 +45,7 @@ Most users lack awareness of basic cybersecurity hygiene — they cannot easily 
 | FR5 | System gives personalized tips based on quiz mistakes | Should |
 | FR6 | Chat maintains context within a single session | Should |
 | FR7 | Dashboard shows history of checks performed in current session | Could |
+| FR8 | User can interact with the chat via voice — speech-to-text input and optional spoken replies (text-to-speech) | Should |
 
 ### 7. Non-Functional Requirements
 

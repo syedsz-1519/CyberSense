@@ -43,7 +43,7 @@ Four core modules, all reachable from one simple web interface:
 
 | Module | What it does |
 |---|---|
-| Chat | Ask any cybersecurity question in plain language; answers are grounded in a curated knowledge base (OWASP Top 10, phishing patterns, password hygiene, safe browsing) instead of relying purely on the AI's general knowledge |
+| Chat | Ask any cybersecurity question by typing **or speaking**; answers are grounded in a curated knowledge base (OWASP Top 10, phishing patterns, password hygiene, safe browsing) instead of relying purely on the AI's general knowledge. Supports voice input (speech-to-text) and optional spoken replies (text-to-speech), via the browser's built-in Web Speech API — no extra service or cost |
 | URL / Email Checker | Paste a suspicious link or email text; the system runs heuristic checks (typosquatting, URL shorteners, IP-based links, mismatched domains) and explains the risk in plain language |
 | Password Analyzer | Enter a password (never stored or logged) and get a strength rating plus a clear explanation of why it's weak or strong, with concrete tips to improve it |
 | Security Quiz | A scenario-based quiz (phishing emails, social engineering calls, public Wi-Fi risks, etc.) that scores the user and gives personalized tips based on what they got wrong |
@@ -82,7 +82,7 @@ Full justification for each choice is in [`docs/tech-stack.md`](./docs/tech-stac
 │       ├── main.jsx                 # React entry point
 │       ├── index.css                # Design system (colors, typography, components)
 │       └── views/
-│           ├── ChatView.jsx           # AI chat interface
+│           ├── ChatView.jsx           # AI chat interface (voice input + spoken replies)
 │           ├── UrlCheckerView.jsx     # Phishing/URL checker UI
 │           ├── PasswordCheckerView.jsx # Password analyzer UI
 │           └── QuizView.jsx           # Security awareness quiz UI

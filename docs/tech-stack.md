@@ -10,6 +10,7 @@
 | HTTP client | fetch / axios | Talks to Express backend |
 | Icons | Lucide React or Tabler icons | Lightweight, consistent icon set |
 | Charts (quiz score, dashboard) | Recharts | Simple score visualizations |
+| Voice interaction | Web Speech API (`SpeechRecognition` + `speechSynthesis`) | Browser-native speech-to-text and text-to-speech — no extra service, API key, or cost; gracefully degrades to text-only in unsupported browsers |
 
 ### 2. Backend
 | Layer | Choice | Notes |

@@ -90,7 +90,59 @@ button.primary {
 .result-card.medium, .result-card.moderate { border-left-color: var(--color-warning); }
 .result-card.high, .result-card.weak { border-left-color: var(--color-danger); }
 
-.chat-log { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+.chat-log { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; max-height: 420px; overflow-y: auto; }
 .bubble { padding: 10px 14px; border-radius: 12px; max-width: 75%; }
 .bubble.user { align-self: flex-end; background: var(--color-primary); color: white; }
 .bubble.bot { align-self: flex-start; background: var(--color-bg); border: 1px solid var(--color-border); }
+
+.chat-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.voice-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.chat-input-row textarea {
+  flex: 1;
+}
+
+.mic-btn {
+  flex-shrink: 0;
+  width: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.mic-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.mic-btn.listening {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
